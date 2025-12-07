@@ -77,6 +77,4 @@ The application will automatically open in your browser at [http://localhost:300
 **Solution Implemented:** The create post form includes a userId input field to match the requirements specification. The userId value is collected from the user but not sent to the API as it would cause the mutation to fail and only title and body are transmitted in the actual GraphQL mutation.
 
 
-👤 Author
-Andy Wijaya Nusantara
-Created for: Kumparan Technical Assessment
+👤 Author: Andy Wijaya Nusantara  |  Created for: Kumparan Technical Assessment
