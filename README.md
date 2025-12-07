@@ -7,10 +7,10 @@ A modern React application for managing blog posts with full Create operations, 
 ![Posts List](./public/post-list.png)
 
 ### Post Detail View
-![Post Detail](./screenshots/post-detail.png)
+![Post Detail](./public/post-detail.png)
 
 ### Create Post Form
-![Create Post](./screenshots/create-post.png)
+![Create Post](./public/create-post.png)
 
 ## 🛠 Tech Stack
 
