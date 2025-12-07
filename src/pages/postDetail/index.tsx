@@ -20,7 +20,7 @@ const PostDetailPage = () => {
 	const hasError = !passedPost && error
 
 	if (isLoading) return <Loading />
-	if (!post) return <Empty />
+	if (!post.title) return <Empty />
 	if (hasError) return <div>Error: {error.message}</div>
 
 	return <PostDetailContent post={post} />
