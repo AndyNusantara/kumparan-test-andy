@@ -1,5 +1,8 @@
-export type UserType = {
+export type UserIDType = {
 	id: String
+}
+
+export type UserType = UserIDType & {
 	name: String
 	username: String
 	email: String
@@ -49,4 +52,14 @@ export type GetPostsResponse = {
 
 export type GetPostResponse = {
 	post: PostType
+}
+
+export type GetUsersIDResponse = {
+	users: {
+		data: UserIDType[]
+	}
+}
+
+export type CreatePostResponse = {
+	createPost: PostType
 }

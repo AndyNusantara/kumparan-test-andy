@@ -1,20 +1,42 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './style.css'
+import { useUsersID } from '../../hooks/useUsers.ts'
+import { useCreatePost } from '../../hooks/useCreatePost.ts'
 
 const CreatePostPage = () => {
 	const navigate = useNavigate()
+	const {
+		usersID,
+		loading: fetchUserLoading,
+		error: fetchUsersIDError
+	} = useUsersID()
+	const { submitPost, loading, error } = useCreatePost()
 	const [title, setTitle] = useState('')
 	const [body, setBody] = useState('')
 	const [userId, setUserId] = useState('1')
 
 	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault()
+		const newPost = await submitPost(title, body)
+
+		if (newPost) {
+			alert(`Post created! Redirecting to post ${newPost.createPost.id}...`)
+			navigate(`/post/${newPost.createPost.id}`, {
+				state: {
+					post: newPost.createPost
+				}
+			})
+		}
 	}
 
 	const handleCancel = () => {
 		navigate('/')
 	}
+
+	if (error) return <div>Submit Error: {error.message}</div>
+	if (fetchUsersIDError)
+		return <div>Fetch Error: {fetchUsersIDError.message}</div>
 
 	return (
 		<div className="create-post-page">
@@ -31,7 +53,7 @@ const CreatePostPage = () => {
 							onChange={(e) => setTitle(e.target.value)}
 							placeholder="Enter post title"
 							required
-							// disabled={loading}
+							disabled={loading}
 						/>
 					</div>
 
@@ -44,7 +66,7 @@ const CreatePostPage = () => {
 							placeholder="Write your post content..."
 							rows={6}
 							required
-							// disabled={loading}
+							disabled={loading}
 						/>
 					</div>
 
@@ -54,11 +76,11 @@ const CreatePostPage = () => {
 							id="userId"
 							value={userId}
 							onChange={(e) => setUserId(e.target.value)}
-							// disabled={loading}
+							disabled={fetchUserLoading}
 						>
-							{[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => (
-								<option key={num} value={num.toString()}>
-									User {num}
+							{usersID?.data.map((item) => (
+								<option key={String(item.id)} value={String(item.id)}>
+									{item.id}
 								</option>
 							))}
 						</select>
@@ -69,13 +91,16 @@ const CreatePostPage = () => {
 							type="button"
 							onClick={handleCancel}
 							className="button"
-							// disabled={loading}
+							disabled={loading}
 						>
 							Cancel
 						</button>
-						<button type="submit" className="button button-submit">
-							{/* {loading ? 'Creating...' : 'Create Post'} */}
-							Create Post
+						<button
+							type="submit"
+							className="button button-submit"
+							disabled={loading}
+						>
+							{loading ? 'Creating...' : 'Create Post'}
 						</button>
 					</div>
 				</form>

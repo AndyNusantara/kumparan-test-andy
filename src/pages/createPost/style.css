@@ -49,11 +49,11 @@
 }
 
 .button-submit {
-	background: #4f46e5;
+	background: blue;
 	color: white;
 }
 
 .button-submit:disabled {
-	background: #a5b4fc;
+	background: lightblue;
 	cursor: not-allowed;
 }

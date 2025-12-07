@@ -2,7 +2,7 @@ import Divider from '../../../components/divider/divider.tsx'
 import { CommentType } from '../../../types/post'
 import './style.css'
 
-const Comment = (data: CommentType) => {
+const Comment = ({ data }: { data: CommentType }) => {
 	return (
 		<div className="comment">
 			<div className="comment-title">

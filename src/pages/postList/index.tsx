@@ -2,8 +2,23 @@ import { useNavigate } from 'react-router-dom'
 import { usePosts } from '../../hooks/usePosts.ts'
 import Post from './components/post.tsx'
 import './style.css'
+import Loading from '../../components/loading/loading.tsx'
+import Empty from '../../components/empty/empty.tsx'
+import { PostsPageType } from '../../types/post.ts'
 
-const PostsList = () => {
+const PostList = ({ posts }: { posts: PostsPageType }) => {
+	return (
+		<div className="post-list">
+			{posts.data.map((post) => (
+				<div key={String(post.id)}>
+					<Post {...post} />
+				</div>
+			))}
+		</div>
+	)
+}
+
+const PostsListPage = () => {
 	const {
 		posts,
 		loading,
@@ -30,28 +45,24 @@ const PostsList = () => {
 			</button>
 
 			{loading ? (
-				<div className="loading">Loading...</div>
+				<Loading />
+			) : !posts?.data.length ? (
+				<Empty />
 			) : (
-				<div className="post-list">
-					{posts?.data.map((post) => (
-						<div key={String(post.id)}>
-							<Post {...post} />
-						</div>
-					))}
-				</div>
+				<PostList posts={posts} />
 			)}
 
 			<div className="pagination">
 				<button type="button" onClick={prevPage} disabled={!hasPrev || loading}>
-					← Previous
+					Previous
 				</button>
 				Current Page : {currentPage}
 				<button type="button" onClick={nextPage} disabled={!hasNext || loading}>
-					Next →
+					Next
 				</button>
 			</div>
 		</div>
 	)
 }
 
-export default PostsList
+export default PostsListPage

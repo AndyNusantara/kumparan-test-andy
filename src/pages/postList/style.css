@@ -3,33 +3,26 @@
 	max-height: 100vh;
 	display: flex;
 	flex-direction: column;
-	gap: 2rem;
+	gap: 1rem;
 	padding: 1rem;
 }
 
 .post-list {
 	display: flex;
 	flex-direction: column;
-	gap: 2rem;
-	padding: 1rem;
-}
-
-.loading {
-	width: 100%;
-	height: 40rem;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	gap: 1rem;
+	padding: 0.5rem;
 }
 
 .pagination {
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
 }
 
 .post-list-container button {
-	padding: 0.5rem;
+	padding: 1rem;
 	border-radius: 0.5rem;
 	cursor: pointer;
 }

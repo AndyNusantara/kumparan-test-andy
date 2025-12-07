@@ -6,15 +6,15 @@ const Post = (data: PostType) => {
 	const navigate = useNavigate()
 
 	const handleOnClick = () => {
-		navigate(`/posts/${data.id}`)
+		navigate(`/post/${data.id}`)
 	}
 
 	return (
-		<button type="button" className="post-container" onClick={handleOnClick}>
+		<div className="post-container" onClick={handleOnClick}>
 			<h2 className="title">{data.title}</h2>
 			<p>{data.body.substring(0, 100)}...</p>
 			<p>Author: {data.user.name}</p>
-		</button>
+		</div>
 	)
 }
 
