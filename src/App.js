@@ -1,7 +1,14 @@
+import { ApolloProvider } from '@apollo/client/react'
 import './App.css'
+import client from './api/client'
+import PostsList from './pages/postList/postList.tsx'
 
 function App() {
-	return <div className="App"></div>
+	return (
+		<ApolloProvider client={client}>
+			<PostsList />
+		</ApolloProvider>
+	)
 }
 
 export default App

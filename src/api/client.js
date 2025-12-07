@@ -1,13 +1,13 @@
-import { ApolloClient, InMemoryCache } from '@apollo/client'
+import { ApolloClient, HttpLink, InMemoryCache } from '@apollo/client'
 
-const URL = process.env.API_URL
+const URL = 'https://graphqlzero.almansi.me/api'
 
 const client = new ApolloClient({
-	link: URL,
+	link: new HttpLink({ uri: URL }),
 	cache: new InMemoryCache(),
 	defaultOptions: {
 		watchQuery: {
-			fetchPolicy: 'cache-and-network'
+			suspense: true
 		}
 	}
 })
