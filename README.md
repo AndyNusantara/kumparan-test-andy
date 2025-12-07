@@ -1,19 +1,16 @@
 # 📝 GraphQL Posts Manager
 
-A modern React application for managing blog posts with full CRUD operations, pagination, and real-time updates using GraphQL.
+A modern React application for managing blog posts with full Create operations, pagination, and real-time updates using GraphQL.
 
 ## 📸 Screenshots
 ### Home Page - Posts Listing
-![Posts List](./screenshots/1-homepage.png)
+![Posts List](./public/post-list.png)
 
 ### Post Detail View
-![Post Detail](./screenshots/2-detail.png)
+![Post Detail](./screenshots/post-detail.png)
 
 ### Create Post Form
-![Create Post](./screenshots/3-create.png)
-
-### Edit Post Form
-![Edit Post](./screenshots/4-edit.png)
+![Create Post](./screenshots/create-post.png)
 
 ## 🛠 Tech Stack
 
