@@ -19,18 +19,34 @@ export type PageLimitPairType = {
 	limit: Number
 }
 
+export type CommentType = {
+	id: String
+	name: String
+	email: String
+	body: String
+}
+
+export type CommentsType = {
+	data: CommentType[]
+}
+
 export type PostType = {
 	id: String
 	title: String
 	body: String
 	user: UserType
+	comments: CommentsType
 }
 
 export type PostsPageType = {
-	data: [PostType]
+	data: PostType[]
 	links: PaginationLinksType
 }
 
 export type GetPostsResponse = {
 	posts: PostsPageType
+}
+
+export type GetPostResponse = {
+	post: PostType
 }

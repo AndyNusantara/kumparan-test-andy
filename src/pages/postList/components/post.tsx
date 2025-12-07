@@ -1,8 +1,13 @@
 import { PostType } from '../../../types/post'
+import { useNavigate } from 'react-router-dom'
 import './style.css'
 
 const Post = (data: PostType) => {
-	const handleOnClick = () => {}
+	const navigate = useNavigate()
+
+	const handleOnClick = () => {
+		navigate(`/posts/${data.id}`)
+	}
 
 	return (
 		<button type="button" className="post-container" onClick={handleOnClick}>

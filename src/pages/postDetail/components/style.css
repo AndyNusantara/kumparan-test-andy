@@ -1,0 +1,12 @@
+.comment {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	border: 1px solid lightgray;
+	border-radius: 1rem;
+	padding: 1rem;
+}
+
+.comment-body {
+	max-width: 60rem;
+}

@@ -1,12 +1,12 @@
 import { ApolloProvider } from '@apollo/client/react'
-import './App.css'
 import client from './api/client'
-import PostsList from './pages/postList/postList.tsx'
+import { RouterProvider } from 'react-router-dom'
+import { router } from './router/router.tsx'
 
 function App() {
 	return (
 		<ApolloProvider client={client}>
-			<PostsList />
+			<RouterProvider router={router} />
 		</ApolloProvider>
 	)
 }

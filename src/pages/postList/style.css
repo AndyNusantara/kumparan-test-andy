@@ -1,13 +1,3 @@
-.container {
-	max-width: 100vw;
-	max-height: 100vh;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	padding: 1rem;
-}
-
 .post-list-container {
 	width: 50rem;
 	max-height: 100vh;
@@ -38,7 +28,7 @@
 	justify-content: space-between;
 }
 
-.pagination-btn {
+.post-list-container button {
 	padding: 0.5rem;
 	border-radius: 0.5rem;
 	cursor: pointer;
